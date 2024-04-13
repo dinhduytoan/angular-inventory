@@ -18,8 +18,8 @@ export class UserService {
     });
   }
   
-  list() : Observable<IResponse> {
-    return this.http.get<IResponse>(`${API_URL}users`, { 
+  list(page: number = 1, limit: number = 10) : Observable<IResponse> {
+    return this.http.get<IResponse>(`${API_URL}users?page=${page}&limit=${limit}`, { 
       headers: this.headers
     });
   }

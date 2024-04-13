@@ -16,9 +16,12 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.title.setTitle("User management");
     this.userTitle = "User Management";
+
+    this.paginate();
   }
   paginate() {
-    this.userService.list().subscribe(res => {
+    this.userService.list(1, 10).subscribe(res => {
+      console.log(res);
       if(res.success === 1) {
         this.listUser = res.data;
       }
