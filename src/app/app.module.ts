@@ -12,6 +12,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
 import { CreateComponent } from './components/users/create/create.component';
 import { UpdateComponent } from './components/users/update/update.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const tokenGetter = () => {
   return localStorage.getItem('access_token');
@@ -41,7 +42,9 @@ export const tokenGetter = () => {
       }
     })
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
   exports: [AppRoutingModule]
 })
